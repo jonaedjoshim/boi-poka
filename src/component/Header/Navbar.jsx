@@ -20,15 +20,16 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="text-xl">Book Vibe</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {links}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
+      <div className="navbar-end space-x-4">
+        <button className="btn bg-[#23BE0A] text-white border-none">Sign In</button>
+        <button className="btn bg-[#59C6D2] text-white border-none">Sign Up</button>
       </div>
     </div>
   );

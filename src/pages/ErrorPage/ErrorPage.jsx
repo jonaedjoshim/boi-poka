@@ -1,10 +1,10 @@
 import React from 'react';
+import erroImg from '../../assets/errorImg.jpg'
 
 const ErrorPage = () => {
     return (
         <div>
-            <h1>404</h1>
-            <h1>Page not found</h1>
+            <img src={erroImg} alt="404_ERROR_PAGE NOT FOUND" className='h-screen'/>
         </div>
     );
 };
