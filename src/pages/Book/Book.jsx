@@ -3,14 +3,14 @@ import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Book = ({ singleBook }) => {
-  console.log(singleBook);
-  const { bookName, category, image, publisher, rating, tags, bookId } = singleBook;
+  // console.log(singleBook);
+  const { bookName, category, image, author, rating, tags, bookId } = singleBook;
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
-      <div className="p-6 m-6 border border-[#13131390] rounded-2xl shadow-lg">
+      <div className="p-6 m-6 border border-[#13131390] rounded-2xl hover:shadow-2xl">
         <div>
-          <figure className="bg-[#F3F3F3] rounded-2xl px-18 py-16 mb-5">
+          <figure className="bg-[#F3F3F3] rounded-2xl px-8 lg:px-18 py-6 lg:py-16 mb-5">
             <img src={image} alt="Book" className="h-72 mx-auto" />
           </figure>
         </div>
@@ -27,7 +27,7 @@ const Book = ({ singleBook }) => {
               ))}
             </div>
             <h2 className="text-2xl font-bold">{bookName}</h2>
-            <p className="text-base font-medium">By : {publisher}</p>
+            <p className="text-base font-medium">By : {author}</p>
           </div>
           <div className="flex justify-between">
             <p>Category : {category}</p>
