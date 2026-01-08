@@ -6,18 +6,23 @@ const Book = ({ singleBook }) => {
 
     return (
         <div className="card bg-base-100 w-96 shadow-sm">
-            <figure>
-                <img src={image} alt="Book" />
-            </figure>
-            <div className="card-body">
-                <h2 className="card-title">
-                    Card Title
-                    <div className="badge badge-secondary">NEW</div>
-                </h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                <div className="card-actions justify-end">
-                    <div className="badge badge-outline">Fashion</div>
-                    <div className="badge badge-outline">Products</div>
+            <div className='mb-8'>
+                <figure className='bg-[#F3F3F3] rounded-2xl px-20 py-16'>
+                    <img src={image} alt="Book" className='h-96' />
+                </figure>
+                <div className="">
+                    <div className='flex flex-col items-start'>
+                        <div className='space-x-3'>
+                            <div className="badge badge-soft badge-success text-[#23BE0A] px-4 py-2">adult</div>
+                            <div className="badge badge-soft badge-success text-[#23BE0A] px-4 py-2">identity</div>
+                        </div>
+                        <h2 className='text-2xl font-bold'>{bookName}</h2>
+                        <p className='text-base font-medium'>By : {publisher}</p>
+                    </div>
+                    <div className='w-full border'>
+                        <p>{category}</p>
+                        <div>{rating}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,3 +30,10 @@ const Book = ({ singleBook }) => {
 };
 
 export default Book;
+
+
+
+{/* <h2 className="card-title flex flex-col">
+    <div className="badge badge-soft badge-success">NEW</div>
+    <h3>{bookName}</h3>
+</h2> */}
