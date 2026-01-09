@@ -8,8 +8,9 @@ const links = (
       <Link to="/about">
         <li>About</li>
       </Link>
-      <li>Listed Books</li>
-      <li>Pages to Read</li>
+      <Link to="/readList">
+        <li>Read List</li>
+      </Link>
     </div>
 );
 
