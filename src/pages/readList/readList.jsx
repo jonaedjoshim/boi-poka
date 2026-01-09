@@ -6,8 +6,9 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { getStoredBook } from "../../Utility/addToDB";
 import Book from "../Book/Book";
 
-const readList = () => {
+const ReadList = () => {
   const [readList, setReadList] = useState([]);
+  const [Sort, setSort] = useState("");
   const data = useLoaderData();
   useEffect(() => {
     const storedBookData = getStoredBook();
@@ -17,6 +18,10 @@ const readList = () => {
     );
     setReadList(myReadList);
   }, [data]);
+
+  const handleSort = (type) => {
+    setSort(type);
+  };
 
   return (
     <div className="mt-6">
@@ -28,7 +33,7 @@ const readList = () => {
         popoverTarget="popover-1"
         style={{ anchorName: "--anchor-1" }}
       >
-        Sort By <IoIosArrowDropdown className="text-base mt-1" />
+        Sort By <IoIosArrowDropdown className="text-base mt-1" /> : {Sort || ""}
       </button>
 
       <ul
@@ -38,10 +43,10 @@ const readList = () => {
         style={{ positionAnchor: "--anchor-1" }}
       >
         <li>
-          <a>Item 1</a>
+          <a onClick={() => handleSort("pages")}>Pages</a>
         </li>
         <li>
-          <a>Item 2</a>
+          <a onClick={() => handleSort("ratings")}>Ratings</a>
         </li>
       </ul>
       <Tabs>
@@ -65,4 +70,4 @@ const readList = () => {
   );
 };
 
-export default readList;
+export default ReadList;
