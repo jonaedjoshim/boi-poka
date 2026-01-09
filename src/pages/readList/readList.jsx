@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { IoIosArrowDropdown } from "react-icons/io";
@@ -10,6 +10,7 @@ const ReadList = () => {
   const [readList, setReadList] = useState([]);
   const [Sort, setSort] = useState("");
   const data = useLoaderData();
+
   useEffect(() => {
     const storedBookData = getStoredBook();
     const convertedStoredBookData = storedBookData.map((id) => parseInt(id));
@@ -33,7 +34,7 @@ const ReadList = () => {
         popoverTarget="popover-1"
         style={{ anchorName: "--anchor-1" }}
       >
-        Sort By <IoIosArrowDropdown className="text-base mt-1" /> : {Sort || ""}
+        Sort By {Sort ? `: ${Sort}` : <IoIosArrowDropdown className="text-base mt-1 " />}
       </button>
 
       <ul
@@ -49,10 +50,11 @@ const ReadList = () => {
           <a onClick={() => handleSort("ratings")}>Ratings</a>
         </li>
       </ul>
+
       <Tabs>
         <TabList>
           <Tab>My Read List</Tab>
-          <Tab>My Wishlst</Tab>
+          <Tab>My Wishlist</Tab>
         </TabList>
         <TabPanel>
           <h2>read list books {readList.length}</h2>

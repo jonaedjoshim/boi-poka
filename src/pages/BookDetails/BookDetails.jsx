@@ -8,8 +8,8 @@ const BookDetails = () => {
   const { id } = useParams();
   const bookId = parseInt(id);
   const data = useLoaderData();
-  console.log(typeof data)
-  const singleBook = data.find((book) => book.bookId === bookId);
+  const booksArray = Array.isArray(data) ? data : data?.books || [];
+  const singleBook = booksArray.find((book) => book.bookId === bookId);
 
   if (!singleBook) {
     return <p className="text-center text-red-500">Book not found</p>;
