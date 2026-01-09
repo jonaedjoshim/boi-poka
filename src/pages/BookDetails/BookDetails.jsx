@@ -2,6 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { useLoaderData, useParams } from "react-router";
 import StraightLine from "../../component/StraightLine/StraightLine";
+import { addStoredDB } from "../../Utility/addToDB";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -21,6 +22,12 @@ const BookDetails = () => {
     rating,
   } = singleBook;
   console.log(singleBook);
+
+  const handleMarkAsRead = (id) => {
+    addStoredDB(id)
+  }
+  
+
   return (
     <div className="hero lg:bg-base-200 min-h-fit rounded-lg shadow-2xl mt-6 lg:py-12 mx-auto">
       <div className="hero-content flex-col lg:flex-row gap-4 lg:gap-16">
@@ -45,7 +52,7 @@ const BookDetails = () => {
             Rating: {rating} <FaStar />
           </p>
           <div className="space-x-4">
-            <button className="btn btn-outline border-white">Read</button>
+            <button onClick={()=>handleMarkAsRead(id)} className="btn btn-outline border-white">Mark as Read</button>
             <button className="btn bg-[#59C6D2] text-white border-none">
               Wishlist
             </button>
