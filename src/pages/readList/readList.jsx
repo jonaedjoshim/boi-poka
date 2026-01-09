@@ -22,6 +22,16 @@ const ReadList = () => {
 
   const handleSort = (type) => {
     setSort(type);
+    if (type === "pages") {
+      const sortedByPage = [...readList].sort(
+        (a, b) => a.totalPages - b.totalPages
+      );
+      setReadList(sortedByPage);
+    }
+    if (type === "ratings") {
+      const sortedByRating = [...readList].sort((a, b) => a.rating - b.rating);
+      setReadList(sortedByRating);
+    }
   };
 
   return (
@@ -34,7 +44,12 @@ const ReadList = () => {
         popoverTarget="popover-1"
         style={{ anchorName: "--anchor-1" }}
       >
-        Sort By {Sort ? `: ${Sort}` : <IoIosArrowDropdown className="text-base mt-1 " />}
+        Sort By{" "}
+        {Sort ? (
+          `: ${Sort}`
+        ) : (
+          <IoIosArrowDropdown className="text-base mt-1 " />
+        )}
       </button>
 
       <ul

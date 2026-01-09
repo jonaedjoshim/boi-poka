@@ -4,14 +4,17 @@ import { Link } from "react-router";
 
 const Book = ({ singleBook }) => {
   // console.log(singleBook);
-  const { bookName, category, image, author, rating, tags, bookId } = singleBook;
+  const { bookName, category, image, author, rating, tags, bookId } =
+    singleBook;
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
       <div className="p-6 m-6 border border-[#13131390] rounded-2xl hover:shadow-2xl">
         <div>
-          <figure className="bg-[#F3F3F3] rounded-2xl px-8 lg:px-18 py-6 lg:py-16 mb-5">
-            <img src={image} alt="Book" className="h-72 mx-auto" />
+          <figure className="bg-[#F3F3F3] rounded-2xl mb-5">
+            <div className="py-5 md:py-7 lg:py-8 bg-[#F3F3F3] w-7/12 md:w-9/12 lg:w-11/12 shadow-xl mx-auto">
+              <img src={image} alt="Book" className="flex h-72 mx-auto" />
+            </div>
           </figure>
         </div>
         <div>
@@ -29,9 +32,9 @@ const Book = ({ singleBook }) => {
             <h2 className="text-2xl font-bold">{bookName}</h2>
             <p className="text-base font-medium">By : {author}</p>
           </div>
-          <div className="flex justify-between">
-            <p>Category : {category}</p>
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap gap-4 justify-center items-center lg:justify-between">
+            <p className="min-w-fit">Category : {category}</p>
+            <div className="flex min-w-fit items-center gap-2">
               Rating : {rating} <FaStar />
             </div>
           </div>
